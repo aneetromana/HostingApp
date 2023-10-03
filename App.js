@@ -18,11 +18,11 @@ export default function App() {
             name="Home"
             component={Home}
             options={{
-              title: 'Welcome!',
+              title: 'Hosting app',
               headerStyle: {
-                backgroundColor: '#f4511e',
+                backgroundColor: '#fff3fd',
               },
-              headerTintColor: '#fff',
+              headerTintColor: 'black',
               headerTitleStyle: {
                 fontWeight: 'bold',
               },
