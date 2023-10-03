@@ -7,11 +7,33 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
       <Text>Welcome!</Text>
       <StatusBar style="auto" />
+
+  
       <TouchableOpacity
         style={styles.customButton}
         onPress={() => navigation.push('About')}
       >
         <Text style={styles.buttonText}>Go to About page</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.customButton}
+        onPress={() => navigation.push('Guests')}
+      >
+        <Text style={styles.buttonText}>Guests</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.customButton}
+        onPress={() => navigation.push('Cocktails')}
+      >
+        <Text style={styles.buttonText}>Cocktails</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.customButton}
+        onPress={() => navigation.push('Dinner')}
+      >
+        <Text style={styles.buttonText}>Dinner</Text>
       </TouchableOpacity>
     </View>
   );
@@ -25,13 +47,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   customButton: {
-    backgroundColor: '#fff3fd', 
+    backgroundColor: '#fff3fd',
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
+    marginVertical: 10, 
   },
   buttonText: {
-    color: 'black', 
+    color: 'black',
     fontSize: 16,
     fontWeight: 'bold',
   },
