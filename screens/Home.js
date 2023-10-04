@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Welcome!</Text>
+      <Text>Welcome! Plan the trendiest and most organized dinner parties!</Text>
       <StatusBar style="auto" />
 
   
@@ -13,7 +13,7 @@ export default function Home({ navigation }) {
         style={styles.customButton}
         onPress={() => navigation.push('About')}
       >
-        <Text style={styles.buttonText}>Go to About page</Text>
+        <Text style={styles.buttonText}>About page</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -36,6 +36,8 @@ export default function Home({ navigation }) {
         <Text style={styles.buttonText}>Dinner</Text>
       </TouchableOpacity>
     </View>
+    // i dont think i will need these multiple buttons coded out like this
+    // once i install the component library
   );
 }
 

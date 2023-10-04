@@ -21,14 +21,12 @@ export default function App() {
             name="Home"
             component={Home}
             options={{
-              title: 'Hosting app',
+              title: 'DINNER HOSTING',
               headerStyle: {
                 backgroundColor: '#fff3fd',
               },
               headerTintColor: 'black',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
+      
             }}
           />
           <Stack.Screen name="About" component={About}/>
