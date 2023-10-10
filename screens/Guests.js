@@ -7,6 +7,7 @@ export default function About({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.textSize}>
     Jenny - gluten allergy
+    Robert- peanut allergy 
       </Text>
       <StatusBar style="auto" />
       <TouchableOpacity
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
   },
   textSize: {
     fontSize: 18,
+
     
   }
 });

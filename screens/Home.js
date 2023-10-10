@@ -1,43 +1,53 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Button, Layout, Text } from '@ui-kitten/components';
+import { useState } from 'react';
 
 export default function Home({ navigation }) {
+  const [counter, setCounter] = useState(0);
+
   return (
-    <View style={styles.container}>
+    <Layout style={styles.container} level='1'>
+      <Button onPress={() => setCounter(counter + 1)}>
+        BUTTON
+      </Button>
+
+      <Text style={styles.text}>
+        {`Pressed ${counter} times`}
+      </Text>
+
       <Text>Welcome! Plan the trendiest and most organized dinner parties!</Text>
       <StatusBar style="auto" />
 
-  
-      <TouchableOpacity
+      <Button
         style={styles.customButton}
         onPress={() => navigation.push('About')}
       >
-        <Text style={styles.buttonText}>About page</Text>
-      </TouchableOpacity>
+        About page
+      </Button>
 
-      <TouchableOpacity
+      <Button
         style={styles.customButton}
         onPress={() => navigation.push('Guests')}
       >
-        <Text style={styles.buttonText}>Guests</Text>
-      </TouchableOpacity>
+        Guests
+      </Button>
 
-      <TouchableOpacity
+      <Button
         style={styles.customButton}
         onPress={() => navigation.push('Cocktails')}
       >
-        <Text style={styles.buttonText}>Cocktails</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+        Cocktails
+      </Button>
+
+      <Button
         style={styles.customButton}
         onPress={() => navigation.push('Dinner')}
       >
-        <Text style={styles.buttonText}>Dinner</Text>
-      </TouchableOpacity>
-    </View>
-    // i dont think i will need these multiple buttons coded out like this
-    // once i install the component library
+        Dinner
+      </Button>
+    </Layout>
   );
 }
 
@@ -51,13 +61,9 @@ const styles = StyleSheet.create({
   customButton: {
     backgroundColor: '#fff3fd',
     borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginVertical: 10, 
+    marginVertical: 10,
   },
-  buttonText: {
-    color: 'black',
-    fontSize: 16,
-    fontWeight: 'bold',
+  text: {
+    marginHorizontal: 8,
   },
 });
