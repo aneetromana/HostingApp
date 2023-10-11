@@ -19,6 +19,7 @@ export default function Home({ navigation }) {
         </Text>
         <Text style={styles.cardText}>Mary: Gluten Free</Text>
         <Text style={styles.cardText}>Sara: Dairy Free</Text>
+        <Text style={styles.cardText}>Khai: Halal</Text>
       </Card>
       <StatusBar style="auto" />
     </Layout>

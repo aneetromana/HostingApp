@@ -34,7 +34,7 @@ export default function Home() {
           <View style={styles.text}>
             <Text>Name: {item.strDrink}</Text>
             <Text>Category: {item.strCategory}</Text>
-            {/* Add more properties you want to display */}
+            {}
           </View>
         </View>
       ))}

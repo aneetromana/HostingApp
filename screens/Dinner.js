@@ -37,7 +37,7 @@ export default function Home() {
             <Text>Category: {item.strCategory}</Text>
             <Button
               style={styles.customButton}
-              onPress={() => console.log('Button Clicked')} // Replace with your desired action
+              onPress={() => console.log('Button Clicked')} 
             >
               Click Me
             </Button>
