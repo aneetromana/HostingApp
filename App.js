@@ -7,9 +7,10 @@ import { ApplicationProvider } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 import Home from './screens/Home';
 import About from './screens/About';
-import Guests from './screens/Guests'
+import Calendar from './screens/Guests'
 import Cocktails from './screens/Cocktails'
 import Dinner from './screens/Dinner'
+import Guesthistory from './screens/Guesthistory.js'
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -31,9 +32,10 @@ export default function App() {
               }}
             />
             <Stack.Screen name="About" component={About} />
-            <Stack.Screen name="Guests" component={Guests} />
+            <Stack.Screen name="Calendar" component={Calendar} />
             <Stack.Screen name="Cocktails" component={Cocktails} />
             <Stack.Screen name="Dinner" component={Dinner} />
+            <Stack.Screen name="Guesthistory" component={Guesthistory} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

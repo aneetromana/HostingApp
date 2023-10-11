@@ -34,7 +34,13 @@ export default function Home() {
           <View style={styles.text}>
             <Text>Name: {item.strMeal}</Text>
             <Text>Category: {item.strCategory}</Text>
-            {/* Add more properties you want to display */}
+            {}
+            <Button
+            style={styles.customButton}
+            onPress={() => navigation.push(buttons[0].screen)}
+          >
+            {buttons[0].label}
+          </Button>
           </View>
         </View>
       ))}
@@ -65,12 +71,12 @@ const styles = {
   },
   button: {
     width: 250,
-    backgroundColor: 'pink',
+    backgroundColor: '#bfdaff',
     borderRadius: 5,
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'center',
     marginVertical: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
   }
 };

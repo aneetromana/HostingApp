@@ -8,9 +8,10 @@ export default function Home({ navigation }) {
 
   const buttons = [
     { label: 'ABOUT', screen: 'About' },
-    { label: 'GUESTS', screen: 'Guests' },
+    { label: 'CALENDAR', screen: 'Guests' },
     { label: 'COCKTAILS', screen: 'Cocktails' },
     { label: 'DINNER', screen: 'Dinner' },
+    { label: 'GUEST HISTORY', screen: 'Guesthistory' },
   ];
 
   return (
@@ -48,7 +49,12 @@ export default function Home({ navigation }) {
           >
             {buttons[3].label}
           </Button>
-
+          <Button
+            style={styles.customButton}
+            onPress={() => navigation.push(buttons[4].screen)}
+          >
+            {buttons[4].label}
+          </Button>
          
         </View>
       </Card>

@@ -65,12 +65,12 @@ const styles = {
   },
   button: {
     width: 150,
-    backgroundColor: 'pink',
+    backgroundColor: '#bfdaff',
     borderRadius: 5,
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'center',
     marginVertical: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
   }
 };
