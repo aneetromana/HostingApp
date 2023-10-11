@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { Button, Layout, Text, Card } from '@ui-kitten/components';
 
 export default function Home({ navigation }) {
-  
-
   const buttons = [
     { label: 'ABOUT', screen: 'About' },
     { label: 'CALENDAR', screen: 'Guests' },
@@ -18,44 +16,24 @@ export default function Home({ navigation }) {
     <Layout style={styles.container} level='1'>
       <Card style={styles.cardBackground}>
         <View style={styles.contentContainer}>
+          <Image
+            source={{ uri: 'https://i.pinimg.com/736x/5b/c4/c8/5bc4c84c481b3796debb9ca7e752214f.jpg' }}
+            style={styles.image}
+          />
+
           <Text category="h3" style={styles.title}>
             BEST HOST EVER
           </Text>
 
-          <Button
-            style={styles.customButton}
-            onPress={() => navigation.push(buttons[0].screen)}
-          >
-            {buttons[0].label}
-          </Button>
-
-          <Button
-            style={styles.customButton}
-            onPress={() => navigation.push(buttons[1].screen)}
-          >
-            {buttons[1].label}
-          </Button>
-
-          <Button
-            style={styles.customButton}
-            onPress={() => navigation.push(buttons[2].screen)}
-          >
-            {buttons[2].label}
-          </Button>
-
-          <Button
-            style={styles.customButton}
-            onPress={() => navigation.push(buttons[3].screen)}
-          >
-            {buttons[3].label}
-          </Button>
-          <Button
-            style={styles.customButton}
-            onPress={() => navigation.push(buttons[4].screen)}
-          >
-            {buttons[4].label}
-          </Button>
-         
+          {buttons.map((button, index) => (
+            <Button
+              key={index}
+              style={styles.customButton}
+              onPress={() => navigation.push(button.screen)}
+            >
+              {button.label}
+            </Button>
+          ))}
         </View>
       </Card>
 
@@ -75,7 +53,9 @@ const styles = StyleSheet.create({
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ebf5ff',
+    backgroundColor: '#fff',
+    borderColor: '#bfdaff',
+    borderWidth: 4,
   },
   contentContainer: {
     flex: 1,
@@ -91,7 +71,10 @@ const styles = StyleSheet.create({
   },
   title: {
     marginBottom: 20,
- 
-
+  },
+  image: {
+    width: 200, 
+    height: 200,
+    borderRadius: 100,
   },
 });
