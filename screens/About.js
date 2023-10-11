@@ -1,49 +1,58 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'; // Replace 'Button' with 'TouchableOpacity'
+import { StyleSheet, View, Image } from 'react-native';
+import { Layout, Text, Card } from '@ui-kitten/components';
 
-export default function About({ navigation }) {
+export default function Home({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.textSize}>
-        This app is for hosting dinner parties and searching for drink and food
-        recipes as well as log down your guest list of everyone coming. It will
-        include 2 APIs. A cocktail list finder and a dinner recipe finder.
-        Users can also view their guest list and note down any allergies /
-        preferences they know their guests may have.
-      </Text>
+    <Layout style={styles.container} level='1'>
+      <Card style={[styles.card, styles.cardColor]}>
+        <Text style={styles.cardTitle}>
+          ABOUT THIS APP
+        </Text>
+        <Text style={styles.cardText}>
+          This app is for hosting dinner parties and searching for drink and food
+          recipes as well as logging your guest list of everyone coming. It will
+          include 2 APIs: a cocktail list finder and a dinner recipe finder.
+          Users can also view their guest list and note down any allergies /
+          preferences they know their guests may have.
+        </Text>
+      </Card>
+      <Image
+        source={{ uri: 'https://hips.hearstapps.com/hmg-prod/images/antillean-lychee-love-martini-dsc-0198-jpg-1644514037.jpg' }}
+        style={styles.image}
+      />
       <StatusBar style="auto" />
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.buttonText}>Go Back</Text>
-      </TouchableOpacity>
-    </View>
+    </Layout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 25,
+    alignItems: 'center',
   },
-  customButton: {
-    backgroundColor: '#fff3fd', 
+  card: {
+    margin: 20,
     borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    borderColor: '#d2e8ff',
+    borderWidth: 7,
   },
-  buttonText: {
-    color: 'black', 
-    fontSize: 16,
+  cardText: {
+    padding: 16,
+  },
+  cardColor: {
+    backgroundColor: '#fff',
+  },
+  cardTitle: {
     fontWeight: 'bold',
+    margin: 20,
+    fontSize: 20,
   },
-  textSize: {
-    fontSize: 18,
-    
-  }
+  image: {
+    width: 280,
+    height: 200,
+    borderRadius: 10,
+  },
 });

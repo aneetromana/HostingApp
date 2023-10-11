@@ -1,12 +1,25 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
+import { Button, Layout, Text, Card } from '@ui-kitten/components';
 
 export default function Home({ navigation }) {
+  const buttons = [
+    { label: 'ABOUT', screen: 'About' },
+    { label: 'CALENDAR', screen: 'Guests' },
+    { label: 'COCKTAILS', screen: 'Cocktails' },
+    { label: 'DINNER', screen: 'Dinner' },
+    { label: 'GUEST HISTORY', screen: 'Guesthistory' },
+  ];
+
   return (
-    <View style={styles.container}>
-      <Text>Welcome!</Text>
-      <StatusBar style="auto" />
+    <Layout style={styles.container} level='1'>
+      <Card style={styles.cardBackground}>
+        <View style={styles.contentContainer}>
+          <Image
+            source={{ uri: 'https://i.pinimg.com/736x/5b/c4/c8/5bc4c84c481b3796debb9ca7e752214f.jpg' }}
+            style={styles.image}
+          />
 
   
       <TouchableOpacity
@@ -16,46 +29,56 @@ export default function Home({ navigation }) {
         <Text style={styles.buttonText}>About page</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={() => navigation.push('Guests')}
-      >
-        <Text style={styles.buttonText}>Guests</Text>
-      </TouchableOpacity>
+          {buttons.map((button, index) => (
+            <Button
+              key={index}
+              style={styles.customButton}
+              onPress={() => navigation.push(button.screen)}
+            >
+              {button.label}
+            </Button>
+          ))}
+        </View>
+      </Card>
 
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={() => navigation.push('Cocktails')}
-      >
-        <Text style={styles.buttonText}>Cocktails</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={() => navigation.push('Dinner')}
-      >
-        <Text style={styles.buttonText}>Dinner</Text>
-      </TouchableOpacity>
-    </View>
+      <StatusBar style="auto" />
+    </Layout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cardBackground: {
+    flex: 1,
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderColor: '#bfdaff',
+    borderWidth: 4,
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   customButton: {
-    backgroundColor: '#fff3fd',
+    backgroundColor: '#bfdaff',
     borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginVertical: 10, 
+    marginVertical: 10,
+    borderColor: '#bfdaff',
+    borderWidth: 1,
   },
-  buttonText: {
-    color: 'black',
-    fontSize: 16,
-    fontWeight: 'bold',
+  title: {
+    marginBottom: 20,
+  },
+  image: {
+    width: 200, 
+    height: 200,
+    borderRadius: 100,
   },
 });

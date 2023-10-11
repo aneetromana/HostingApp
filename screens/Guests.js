@@ -1,45 +1,44 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'; // Replace 'Button' with 'TouchableOpacity'
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Calendar, Button, Layout, Text } from '@ui-kitten/components';
 
 export default function About({ navigation }) {
+  const [date, setDate] = useState(new Date());
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.textSize}>
-    Jenny - gluten allergy
+    <Layout style={styles.container} level='1'>
+      <Text category='h6'>
+        Selected date:
+        {' '}
+        {date.toLocaleDateString()}
       </Text>
-      <StatusBar style="auto" />
-      <TouchableOpacity
+
+      <Calendar
+        date={date}
+        onSelect={nextDate => setDate(nextDate)}
+      />
+
+      <Button
         style={styles.customButton}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.push('Guesthistory')} 
       >
-        <Text style={styles.buttonText}>Go Back</Text>
-      </TouchableOpacity>
-    </View>
+        Go to My Guests
+      </Button>
+    </Layout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 25,
+    alignItems: 'center',
   },
   customButton: {
-    backgroundColor: '#fff3fd', 
+    backgroundColor: '#bfdaff',
     borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    marginVertical: 10,
+    borderColor: '#bfdaff',
+    borderWidth: 1,
   },
-  buttonText: {
-    color: 'black', 
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  textSize: {
-    fontSize: 18,
-    
-  }
 });
