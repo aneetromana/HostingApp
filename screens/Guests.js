@@ -20,7 +20,7 @@ export default function About({ navigation }) {
 
       <Button
         style={styles.customButton}
-        onPress={() => navigation.push('Guestlist')} 
+        onPress={() => navigation.push('Guesthistory')} 
       >
         Go to My Guests
       </Button>

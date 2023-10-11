@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, View, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
+import { Button } from '@ui-kitten/components';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -34,13 +35,12 @@ export default function Home() {
           <View style={styles.text}>
             <Text>Name: {item.strMeal}</Text>
             <Text>Category: {item.strCategory}</Text>
-            {}
             <Button
-            style={styles.customButton}
-            onPress={() => navigation.push(buttons[0].screen)}
-          >
-            {buttons[0].label}
-          </Button>
+              style={styles.customButton}
+              onPress={() => console.log('Button Clicked')} // Replace with your desired action
+            >
+              Click Me
+            </Button>
           </View>
         </View>
       ))}
@@ -52,7 +52,7 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 10
+    paddingTop: 10,
   },
   image: {
     height: 200,
@@ -60,8 +60,8 @@ const styles = {
   },
   feed: {
     display: 'flex',
-    flexDirection: "column",
-    alignItems: "center"
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   text: {
     width: 380,
@@ -78,5 +78,13 @@ const styles = {
     alignSelf: 'center',
     marginVertical: 10,
     paddingVertical: 10,
-  }
+  },
+  customButton: {
+    backgroundColor: 'white',
+    borderColor: '#bfdaff',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginVertical: 10,
+    paddingVertical: 10,
+  },
 };

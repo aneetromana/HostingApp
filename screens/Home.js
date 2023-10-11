@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginBottom: 20,
-   font: 'Times New Roman',
+ 
+
   },
 });

@@ -9,6 +9,7 @@ import Home from './screens/Home';
 import About from './screens/About';
 import Calendar from './screens/Guests'
 import Cocktails from './screens/Cocktails'
+import Guests from './screens/Guests'
 import Dinner from './screens/Dinner'
 import Guesthistory from './screens/Guesthistory.js'
 
@@ -36,6 +37,7 @@ export default function App() {
             <Stack.Screen name="Cocktails" component={Cocktails} />
             <Stack.Screen name="Dinner" component={Dinner} />
             <Stack.Screen name="Guesthistory" component={Guesthistory} />
+            <Stack.Screen name="Guests" component={Guests} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
