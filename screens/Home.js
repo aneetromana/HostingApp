@@ -13,7 +13,7 @@ export default function Home({ navigation }) {
         style={styles.customButton}
         onPress={() => navigation.push('About')}
       >
-        <Text style={styles.buttonText}>Go to About page</Text>
+        <Text style={styles.buttonText}>About page</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
