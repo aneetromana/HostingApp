@@ -1,52 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import { Button, Layout, Text } from '@ui-kitten/components';
-import { useState } from 'react';
+import { Button, Layout, Text, Card } from '@ui-kitten/components';
 
 export default function Home({ navigation }) {
-  const [counter, setCounter] = useState(0);
+  
+
+  const buttons = [
+    { label: 'ABOUT', screen: 'About' },
+    { label: 'GUESTS', screen: 'Guests' },
+    { label: 'COCKTAILS', screen: 'Cocktails' },
+    { label: 'DINNER', screen: 'Dinner' },
+  ];
 
   return (
     <Layout style={styles.container} level='1'>
-      <Button onPress={() => setCounter(counter + 1)}>
-        BUTTON
-      </Button>
+      <Card style={styles.cardBackground}>
+        <View style={styles.contentContainer}>
+          <Text category="h3" style={styles.title}>
+            BEST HOST EVER
+          </Text>
 
-      <Text style={styles.text}>
-        {`Pressed ${counter} times`}
-      </Text>
+          <Button
+            style={styles.customButton}
+            onPress={() => navigation.push(buttons[0].screen)}
+          >
+            {buttons[0].label}
+          </Button>
 
-      <Text>Welcome! Plan the trendiest and most organized dinner parties!</Text>
+          <Button
+            style={styles.customButton}
+            onPress={() => navigation.push(buttons[1].screen)}
+          >
+            {buttons[1].label}
+          </Button>
+
+          <Button
+            style={styles.customButton}
+            onPress={() => navigation.push(buttons[2].screen)}
+          >
+            {buttons[2].label}
+          </Button>
+
+          <Button
+            style={styles.customButton}
+            onPress={() => navigation.push(buttons[3].screen)}
+          >
+            {buttons[3].label}
+          </Button>
+
+         
+        </View>
+      </Card>
+
       <StatusBar style="auto" />
-
-      <Button
-        style={styles.customButton}
-        onPress={() => navigation.push('About')}
-      >
-        About page
-      </Button>
-
-      <Button
-        style={styles.customButton}
-        onPress={() => navigation.push('Guests')}
-      >
-        Guests
-      </Button>
-
-      <Button
-        style={styles.customButton}
-        onPress={() => navigation.push('Cocktails')}
-      >
-        Cocktails
-      </Button>
-
-      <Button
-        style={styles.customButton}
-        onPress={() => navigation.push('Dinner')}
-      >
-        Dinner
-      </Button>
     </Layout>
   );
 }
@@ -54,16 +61,30 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cardBackground: {
+    flex: 1,
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ebf5ff',
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   customButton: {
-    backgroundColor: '#fff3fd',
+    backgroundColor: '#bfdaff',
     borderRadius: 10,
     marginVertical: 10,
+    borderColor: '#bfdaff',
+    borderWidth: 1,
   },
-  text: {
-    marginHorizontal: 8,
+  title: {
+    marginBottom: 20,
+   font: 'Times New Roman',
   },
 });

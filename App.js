@@ -9,6 +9,7 @@ import Home from './screens/Home';
 import About from './screens/About';
 import Guests from './screens/Guests'
 import Cocktails from './screens/Cocktails'
+import Dinner from './screens/Dinner'
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -24,7 +25,7 @@ export default function App() {
               options={{
                 title: 'DINNER HOSTING',
                 headerStyle: {
-                  backgroundColor: '#fff3fd',
+                  backgroundColor: '#ebf5ff',
                 },
                 headerTintColor: 'black',
               }}
@@ -32,6 +33,7 @@ export default function App() {
             <Stack.Screen name="About" component={About} />
             <Stack.Screen name="Guests" component={Guests} />
             <Stack.Screen name="Cocktails" component={Cocktails} />
+            <Stack.Screen name="Dinner" component={Dinner} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

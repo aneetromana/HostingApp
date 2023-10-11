@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'; 
+import { StyleSheet, View } from 'react-native';
+import { Calendar, Text } from '@ui-kitten/components';
 
 export default function About({ navigation }) {
+  const [date, setDate] = useState(new Date());
+
   return (
     <View style={styles.container}>
-      <Text style={styles.textSize}>
-    Jenny - gluten allergy
-    Robert- peanut allergy 
+      <Text category='h6'>
+        Selected date:
+        {' '}
+        {date.toLocaleDateString()}
       </Text>
-      <StatusBar style="auto" />
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.buttonText}>Go Back</Text>
-      </TouchableOpacity>
+
+      <Calendar
+        date={date}
+        onSelect={nextDate => setDate(nextDate)}
+      />
     </View>
   );
 }
@@ -29,19 +31,17 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   customButton: {
-    backgroundColor: '#fff3fd', 
+    backgroundColor: '#fff3fd',
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
   buttonText: {
-    color: 'black', 
+    color: 'black',
     fontSize: 16,
     fontWeight: 'bold',
   },
   textSize: {
     fontSize: 18,
-
-    
-  }
+  },
 });
