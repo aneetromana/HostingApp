@@ -3,7 +3,7 @@ import { ScrollView, Text, View, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
 import { Button } from '@ui-kitten/components';
 
-export default function Home() {
+export default function Dinner() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('a');
 

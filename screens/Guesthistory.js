@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { Layout, Text, Card } from '@ui-kitten/components';
 
-export default function Home({ navigation }) {
+export default function ({ navigation }) {
 
   const [CardSimpleUsageShowcase, setCardSimpleUsageShowcase] = useState(0);
 

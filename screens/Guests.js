@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Calendar, Button, Layout, Text } from '@ui-kitten/components';
 
-export default function About({ navigation }) {
+export default function Guests({ navigation }) {
   const [date, setDate] = useState(new Date());
 
   return (
