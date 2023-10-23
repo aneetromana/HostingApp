@@ -64,8 +64,8 @@ const styles = {
     alignItems: 'flex-start',
   },
   button: {
-    width: 150,
-    backgroundColor: '#bfdaff',
+    width: 200,
+    backgroundColor: '#FDEDF4',
     borderRadius: 5,
     display: 'flex',
     alignItems: 'center',

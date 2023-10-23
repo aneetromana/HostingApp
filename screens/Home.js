@@ -9,25 +9,22 @@ export default function Home({ navigation }) {
     { label: 'CALENDAR', screen: 'Guests' },
     { label: 'COCKTAILS', screen: 'Cocktails' },
     { label: 'DINNER', screen: 'Dinner' },
-    { label: 'GUEST HISTORY', screen: 'Guesthistory' },
+    { label: 'GUEST INFO', screen: 'Guesthistory' },
   ];
 
   return (
     <Layout style={styles.container} level='1'>
       <Card style={styles.cardBackground}>
         <View style={styles.contentContainer}>
+          
           <Image
             source={{ uri: 'https://i.pinimg.com/736x/5b/c4/c8/5bc4c84c481b3796debb9ca7e752214f.jpg' }}
             style={styles.image}
           />
 
-  
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={() => navigation.push('About')}
-      >
-        <Text style={styles.buttonText}>About page</Text>
-      </TouchableOpacity>
+<Text style={styles.titleInfo}>
+Create culinary magic with every dish and sip!
+        </Text>
 
           {buttons.map((button, index) => (
             <Button
@@ -57,9 +54,15 @@ const styles = StyleSheet.create({
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderColor: '#bfdaff',
+    backgroundColor: '#FDEDF4',
+    borderColor: '#FDEDF4',
     borderWidth: 4,
+    borderRadius: 30,
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 3,
   },
   contentContainer: {
     flex: 1,
@@ -67,14 +70,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   customButton: {
-    backgroundColor: '#bfdaff',
+    backgroundColor: '#F8C9DB',
     borderRadius: 10,
     marginVertical: 10,
-    borderColor: '#bfdaff',
+    borderColor: '#F8C9DB',
     borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 3,
   },
   title: {
     marginBottom: 20,
+  },
+  titleInfo: {
+    fontStyle: 'italic',
+    fontSize: 20,
   },
   image: {
     width: 200, 

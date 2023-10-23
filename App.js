@@ -27,7 +27,7 @@ export default function App() {
               options={{
                 title: 'DINNER HOSTING',
                 headerStyle: {
-                  backgroundColor: '#ebf5ff',
+                  backgroundColor: '#F8C9DB',
                 },
                 headerTintColor: 'black',
               }}
