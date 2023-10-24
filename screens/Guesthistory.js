@@ -8,13 +8,13 @@ export default function ({ navigation }) {
 
   return (
     <Layout style={styles.container} level='1'>
-      <Card style={[styles.card, styles.cardColor]}>
+      <Card style={styles.card}>
         <Text style={styles.cardTitle}>MY GUEST HISTORY NOTES</Text>
         <Text style={styles.cardText}>John: Peanut Allergy</Text>
         <Text style={styles.cardText}>Mary: Gluten Free</Text>
         <Text style={styles.cardText}>Sara: Dairy Free</Text>
         <Text style={styles.cardText}>Khai: Halal</Text>
-        <Card style={[styles.card2, styles.cardColor2, styles.innerCard]}>
+        <Card style={styles.innerCard}>
           <Text style={styles.innerCardTitle}>TIPS: COMMON ALLERGIES</Text>
           <Text style={styles.innerCardText}>EGGS, SOY, DAIRY, WHEAT</Text>
         </Card>
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#F5F5F5', 
   },
   card: {
     margin: 20,
@@ -36,37 +37,30 @@ const styles = StyleSheet.create({
     borderColor: '#F8C9DB',
     borderWidth: 7,
     padding: 20,
+    backgroundColor: '#FFFFFF',
   },
-
   cardText: {
-    padding: 16,
+    paddingVertical: 8,
   },
-  cardColor: {
-    backgroundColor: '#fff',
-  },
-
   cardTitle: {
     fontWeight: 'bold',
     margin: 20,
-    fontSize: 20,
+    fontSize: 24,
   },
   innerCard: {
-    margin: 20,
+    marginVertical: 20,
     borderRadius: 20,
     borderColor: '#F8C9DB',
     borderWidth: 2,
-    padding: 2,
+    padding: 20,
     backgroundColor: '#FDEDF4',
-    justifyContent: 'center',
-    alignItems: 'center',
-    
   },
   innerCardTitle: {
     fontWeight: 'bold',
-    margin: 10,
-    fontSize: 16,
+    marginVertical: 10,
+    fontSize: 20,
   },
   innerCardText: {
-    padding: 10,
+    paddingVertical: 8,
   },
 });
