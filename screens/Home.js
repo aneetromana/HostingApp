@@ -5,31 +5,30 @@ import { Button, Layout, Text, Card } from '@ui-kitten/components';
 
 export default function Home({ navigation }) {
   const buttons = [
-    { label: 'ABOUT', screen: 'About' },
-    { label: 'CALENDAR', screen: 'Guests' },
-    { label: 'COCKTAILS', screen: 'Cocktails' },
-    { label: 'DINNER', screen: 'Dinner' },
-    { label: 'GUEST INFO', screen: 'Guesthistory' },
+    { label: 'ABOUT', screen: 'About', color: '#FD7EBE' },
+    { label: 'CALENDAR', screen: 'Guests', color: '#FF719A' },
+    { label: 'COCKTAILS', screen: 'Cocktails', color: '#FF446E' },
+    { label: 'DINNER', screen: 'Dinner', color: '#FF7449' },
+    { label: 'GUEST INFO', screen: 'Guesthistory', color: '#FFA325' },
   ];
 
   return (
     <Layout style={styles.container} level='1'>
       <Card style={styles.cardBackground}>
         <View style={styles.contentContainer}>
-          
           <Image
-            source={{ uri: 'https://i.pinimg.com/736x/5b/c4/c8/5bc4c84c481b3796debb9ca7e752214f.jpg' }}
+            source={{ uri: 'https://i.pinimg.com/736x/ea/41/34/ea41345abc8f6bd68a925a06d77b4dc3.jpg' }}
             style={styles.image}
           />
 
-<Text style={styles.titleInfo}>
-Create culinary magic with every dish and sip!
-        </Text>
+          <Text style={styles.titleInfo}>
+            Create culinary magic with every dish and sip!
+          </Text>
 
           {buttons.map((button, index) => (
             <Button
               key={index}
-              style={styles.customButton}
+              style={[styles.customButton, { backgroundColor: button.color }]}
               onPress={() => navigation.push(button.screen)}
             >
               {button.label}
@@ -54,15 +53,15 @@ const styles = StyleSheet.create({
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FDEDF4',
+    backgroundColor: '#FFF',
     borderColor: '#FDEDF4',
     borderWidth: 4,
     borderRadius: 30,
-    shadowColor: '#000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
-    elevation: 3,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 2 },
+    shadowOpacity: 0.9,
+    shadowRadius: 5,
+    elevation: 5,
   },
   contentContainer: {
     flex: 1,
@@ -70,9 +69,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   customButton: {
-    backgroundColor: '#F8C9DB',
     borderRadius: 10,
-    marginVertical: 10,
+    marginVertical: 5,
     borderColor: '#F8C9DB',
     borderWidth: 1,
     shadowColor: '#000',
@@ -87,10 +85,12 @@ const styles = StyleSheet.create({
   titleInfo: {
     fontStyle: 'italic',
     fontSize: 20,
+
   },
   image: {
-    width: 200, 
+    width: 200,
     height: 200,
     borderRadius: 100,
+    marginVertical: 15,
   },
 });

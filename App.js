@@ -27,9 +27,10 @@ export default function App() {
               options={{
                 title: 'DINNER HOSTING',
                 headerStyle: {
-                  backgroundColor: '#F8C9DB',
+                  backgroundColor: '#fff',
+           
                 },
-                headerTintColor: 'black',
+                headerTintColor: 'orange',
               }}
             />
             <Stack.Screen name="About" component={About} />
