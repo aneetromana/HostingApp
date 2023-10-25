@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import { Layout, Text, Card } from '@ui-kitten/components';
+import { Layout, Text, Card, List, ListItem } from '@ui-kitten/components';
 
 export default function ({ navigation }) {
   const [CardSimpleUsageShowcase, setCardSimpleUsageShowcase] = useState(0);
 
+  const fruits = [ 'SoyBeans', 'Tree Nuts', 'Dairy', 'Peanuts', 'Gluten', 'Wheat', 'Eggs'];
+
+  
+  const data = fruits.map((fruit, index) => ({
+    title: fruit,
+  }));
+
+  const renderItem = ({ item, index }) => (
+    <ListItem title={`${item.title}`} />
+  );
+
   return (
     <Layout style={styles.container} level='1'>
       <Card style={styles.card}>
-        <Text style={styles.cardTitle}>MY GUEST HISTORY NOTES</Text>
-        <Text style={styles.cardText}>John: Peanut Allergy</Text>
-        <Text style={styles.cardText}>Mary: Gluten Free</Text>
-        <Text style={styles.cardText}>Sara: Dairy Free</Text>
-        <Text style={styles.cardText}>Khai: Halal</Text>
-        <Card style={styles.innerCard}>
-          <Text style={styles.innerCardTitle}>TIPS: COMMON ALLERGIES</Text>
-          <Text style={styles.innerCardText}>EGGS, SOY, DAIRY, WHEAT</Text>
+        <Card style={styles.listCard}>
+        <Text>
+            Most common allergies
+          </Text>
+         
+          <List
+          style={styles.list}
+            data={data}
+            renderItem={renderItem}
+          />
         </Card>
       </Card>
       <StatusBar style="auto" />
@@ -26,41 +39,25 @@ export default function ({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5', 
   },
-  card: {
-    margin: 20,
-    borderRadius: 10,
-    borderColor: '#F8C9DB',
-    borderWidth: 7,
-    padding: 20,
-    backgroundColor: '#FFFFFF',
+  listCard: {
+    backgroundColor: '#fff',
+    borderColor: '#FD7EBE',
+    borderWidth: 4,
+    borderRadius: 30,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 2 },
+    shadowOpacity: 0.9,
+    shadowRadius: 5,
+    elevation: 5,
   },
-  cardText: {
-    paddingVertical: 8,
+  list: {
   },
-  cardTitle: {
-    fontWeight: 'bold',
-    margin: 20,
-    fontSize: 24,
+  contentContainer: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
-  innerCard: {
-    marginVertical: 20,
-    borderRadius: 20,
-    borderColor: '#F8C9DB',
-    borderWidth: 2,
-    padding: 20,
-    backgroundColor: '#FDEDF4',
-  },
-  innerCardTitle: {
-    fontWeight: 'bold',
-    marginVertical: 10,
-    fontSize: 20,
-  },
-  innerCardText: {
-    paddingVertical: 8,
-  },
+
+ 
+
 });
