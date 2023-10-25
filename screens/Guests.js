@@ -7,19 +7,18 @@ export default function Guests({ navigation }) {
 
   return (
     <Layout style={styles.container} level='1'>
-      <Text category='h6'>
-        Selected date:
-        {' '}
-        {date.toLocaleDateString()}
+      <Text category='h6' style={styles.dateText}>
+        Selected date: {date.toLocaleDateString()}
       </Text>
 
       <Calendar
         date={date}
         onSelect={nextDate => setDate(nextDate)}
+        style={styles.calendar}
       />
 
       <Button
-        style={styles.customButton}
+        style={styles.button}
         onPress={() => navigation.push('Guesthistory')} 
       >
         Go to My Guests
@@ -33,12 +32,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
-  customButton: {
-    backgroundColor: '#bfdaff',
+  dateText: {
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  calendar: {
+    width: '100%',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#FD7EBE',
     borderRadius: 10,
     marginVertical: 10,
-    borderColor: '#bfdaff',
+    borderColor: '#FF6F61',
     borderWidth: 1,
   },
 });

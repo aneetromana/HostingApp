@@ -5,11 +5,11 @@ import { Button, Layout, Text, Card } from '@ui-kitten/components';
 
 export default function Home({ navigation }) {
   const buttons = [
-    { label: 'ABOUT', screen: 'About', color: '#FD7EBE' },
+    { label: 'ABOUT US', screen: 'About', color: '#FD7EBE' },
     { label: 'CALENDAR', screen: 'Guests', color: '#FF719A' },
     { label: 'COCKTAILS', screen: 'Cocktails', color: '#FF446E' },
-    { label: 'DINNER', screen: 'Dinner', color: '#FF7449' },
-    { label: 'GUEST INFO', screen: 'Guesthistory', color: '#FFA325' },
+    { label: 'DINNER RECIPES', screen: 'Dinner', color: '#FF7449' },
+    { label: 'HOSTING TIPS', screen: 'Guesthistory', color: '#FFA325' },
   ];
 
   return (
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFF',
-    borderColor: '#FDEDF4',
+    borderColor: '#FD7EBE',
     borderWidth: 4,
     borderRadius: 30,
     shadowColor: 'black',
@@ -92,5 +92,6 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 100,
     marginVertical: 15,
+    
   },
 });
