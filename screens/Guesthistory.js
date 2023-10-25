@@ -51,13 +51,6 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
   },
-  list: {
-  },
-  contentContainer: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
 
- 
 
 });
