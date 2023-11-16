@@ -16,7 +16,7 @@ export default function About({ navigation }) {
           discover delicious and popular drink and food recipes, and keep track of your guest list. 
           It will include 2 APIs: a cocktail list finder and a dinner recipe finder.
           Users can also view their guest list and note down any allergies 
-          preferences they know their guests may have.
+          preferences they know their guests may have. and 
         </Text>
         <Image
         source={{ uri: 'https://hips.hearstapps.com/hmg-prod/images/antillean-lychee-love-martini-dsc-0198-jpg-1644514037.jpg' }}

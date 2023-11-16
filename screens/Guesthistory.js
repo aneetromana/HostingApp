@@ -1,44 +1,63 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Layout, Text, Card, List, ListItem } from '@ui-kitten/components';
 
 export default function ({ navigation }) {
-  const [CardSimpleUsageShowcase, setCardSimpleUsageShowcase] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  const fruits = [ 'SoyBeans', 'Tree Nuts', 'Dairy', 'Peanuts', 'Gluten', 'Wheat', 'Eggs'];
+  const fruits = ['SoyBeansss', 'Tree Nuts', 'Dairy', 'Peanuts', 'Gluten', 'Wheat', 'Eggs'];
 
-  
   const data = fruits.map((fruit, index) => ({
     title: fruit,
   }));
 
   const renderItem = ({ item, index }) => (
-    <ListItem title={`${item.title}`} />
+    <TouchableOpacity onPress={() => showPopup(item)}>
+      <ListItem title={`${item.title}`} />
+    </TouchableOpacity>
   );
+
+  const showPopup = (item) => {
+    setSelectedItem(item);
+  };
+
+  const hidePopup = () => {
+    setSelectedItem(null);
+  };
 
   return (
     <Layout style={styles.container} level='1'>
       <Card style={styles.card}>
         <Card style={styles.listCard}>
-        <Text>
-            Most common allergies
-          </Text>
-         
-          <List
-          style={styles.list}
-            data={data}
-            renderItem={renderItem}
-          />
+          <Text>Most common allergies</Text>
+          <List style={styles.list} data={data} renderItem={renderItem} />
         </Card>
       </Card>
-      <StatusBar style="auto" />
+
+      {/* Popup */}
+      {selectedItem && (
+        <View style={styles.popup}>
+          <View style={styles.popupContent}>
+            <Text>{selectedItem.title}</Text>
+            {/* Add additional content for the popup */}
+            <TouchableOpacity onPress={hidePopup}>
+              <Text>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
     </Layout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  card: {
+    // Add your card styles here
   },
   listCard: {
     backgroundColor: '#fff',
@@ -51,6 +70,22 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
   },
-
-
+  popup: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popupContent: {
+    backgroundColor: 'white',
+    padding: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
 });
