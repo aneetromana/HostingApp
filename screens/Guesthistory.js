@@ -7,8 +7,19 @@ export default function ({ navigation }) {
 
   const fruits = ['SoyBeansss', 'Tree Nuts', 'Dairy', 'Peanuts', 'Gluten', 'Wheat', 'Eggs'];
 
+  const additionalInfo = [
+    'SoyBeansss info',
+    'Tree Nuts info',
+    'Dairy info',
+    'Peanuts info',
+    'Gluten info',
+    'Wheat info',
+    'Eggs info',
+  ];
+
   const data = fruits.map((fruit, index) => ({
     title: fruit,
+    info: additionalInfo[index],
   }));
 
   const renderItem = ({ item, index }) => (
@@ -39,7 +50,7 @@ export default function ({ navigation }) {
         <View style={styles.popup}>
           <View style={styles.popupContent}>
             <Text>{selectedItem.title}</Text>
-            {/* Add additional content for the popup */}
+            <Text>{selectedItem.info}</Text>
             <TouchableOpacity onPress={hidePopup}>
               <Text>Close</Text>
             </TouchableOpacity>
