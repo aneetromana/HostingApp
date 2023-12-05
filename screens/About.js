@@ -2,29 +2,37 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Image } from 'react-native';
 import { Layout, Text, Card } from '@ui-kitten/components';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function About({ navigation }) {
   return (
     <Layout style={styles.container} level='1'>
-      <Card style={[styles.card, styles.cardColor]}>
-        <Text style={styles.cardTitle}>
-          ABOUT THIS APP
-        </Text>
+      <LinearGradient
+        colors={['#F2BF6C', '#FF51EB']}
+        style={styles.gradient}
+      >
+        <View style={styles.contentContainer}>
+          <Card style={[styles.card, styles.cardColor]}>
+            <Text style={styles.cardTitle}>
+              ABOUT THIS APP
+            </Text>
 
-        <Text style={styles.cardText}>
-          With this app, you can effortlessly organize unforgettable dinner parties,
-          discover delicious and popular drink and food recipes, and keep track of your guest list. 
-          It will include 2 APIs: a cocktail list finder and a dinner recipe finder.
-          Users can also view their guest list and note down any allergies 
-          preferences they know their guests may have. and 
-        </Text>
-        <Image
-        source={{ uri: 'https://hips.hearstapps.com/hmg-prod/images/antillean-lychee-love-martini-dsc-0198-jpg-1644514037.jpg' }}
-        style={styles.image}
-      />
-      </Card>
-    
-      <StatusBar style="auto" />
+            <Text style={styles.cardText}>
+              With this app, you can effortlessly organize unforgettable dinner parties,
+              discover delicious and popular drink and food recipes, and keep track of your guest list. 
+              It will include 2 APIs: a cocktail list finder and a dinner recipe finder.
+              Users can also view their guest list and note down any allergies 
+              preferences they know their guests may have.
+            </Text>
+            <Image
+              source={{ uri: 'https://hips.hearstapps.com/hmg-prod/images/antillean-lychee-love-martini-dsc-0198-jpg-1644514037.jpg' }}
+              style={styles.image}
+            />
+          </Card>
+        </View>
+
+        <StatusBar style="auto" />
+      </LinearGradient>
     </Layout>
   );
 }
@@ -32,6 +40,12 @@ export default function About({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  gradient: {
+    flex: 1, // Ensure the LinearGradient fills the entire screen
+  },
+  contentContainer: {
+    flex: 1, // Ensure the content inside LinearGradient fills the entire screen
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -48,7 +62,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   cardColor: {
-    backgroundColor: '#FD7EBE',
+    backgroundColor: '#fff',
   },
   cardTitle: {
     fontWeight: 'bold',

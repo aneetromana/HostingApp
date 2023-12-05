@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Layout, Text, Card, List, ListItem } from '@ui-kitten/components';
+import { Text, List, ListItem } from '@ui-kitten/components';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ({ navigation }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const fruits = ['SoyBeansss', 'Tree Nuts', 'Dairy', 'Peanuts', 'Gluten', 'Wheat', 'Eggs'];
-
   const additionalInfo = [
     'SoyBeansss info',
     'Tree Nuts info',
@@ -22,7 +22,7 @@ export default function ({ navigation }) {
     info: additionalInfo[index],
   }));
 
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => showPopup(item)}>
       <ListItem title={`${item.title}`} />
     </TouchableOpacity>
@@ -37,27 +37,29 @@ export default function ({ navigation }) {
   };
 
   return (
-    <Layout style={styles.container} level='1'>
-      <Card style={styles.card}>
-        <Card style={styles.listCard}>
-          <Text>Most common allergies</Text>
-          <List style={styles.list} data={data} renderItem={renderItem} />
-        </Card>
-      </Card>
+    <LinearGradient
+      colors={['#F2BF6C', '#FF51EB']}
+      style={styles.gradient}
+    >
+      {/* Wrapped the content inside the gradient */}
+      <View style={styles.container}>
+        <Text>Most common allergies</Text>
+        <List style={styles.list} data={data} renderItem={renderItem} />
 
-      {/* Popup */}
-      {selectedItem && (
-        <View style={styles.popup}>
-          <View style={styles.popupContent}>
-            <Text>{selectedItem.title}</Text>
-            <Text>{selectedItem.info}</Text>
-            <TouchableOpacity onPress={hidePopup}>
-              <Text>Close</Text>
-            </TouchableOpacity>
+        {/* Popup */}
+        {selectedItem && (
+          <View style={styles.popup}>
+            <View style={styles.popupContent}>
+              <Text>{selectedItem.title}</Text>
+              <Text>{selectedItem.info}</Text>
+              <TouchableOpacity onPress={hidePopup}>
+                <Text>Close</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-      )}
-    </Layout>
+        )}
+      </View>
+    </LinearGradient>
   );
 }
 
@@ -66,20 +68,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20, 
   },
-  card: {
-    // Add your card styles here
-  },
-  listCard: {
-    backgroundColor: '#fff',
-    borderColor: '#FD7EBE',
-    borderWidth: 4,
-    borderRadius: 30,
-    shadowColor: 'black',
-    shadowOffset: { width: 5, height: 2 },
-    shadowOpacity: 0.9,
-    shadowRadius: 5,
-    elevation: 5,
+  list: {
+    width: '100%', 
   },
   popup: {
     position: 'absolute',
@@ -87,16 +79,20 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+    zIndex: 2, // Make sure it's on top
   },
   popupContent: {
     backgroundColor: 'white',
-    padding: 22,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
+    padding: 20,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    width: '80%', // Adjust as needed
+  },
+  gradient: {
+    flex: 1,
   },
 });

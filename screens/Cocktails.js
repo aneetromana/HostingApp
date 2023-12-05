@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ScrollView, View, TouchableOpacity, Image } from 'react-native';
-import {  Text, Card } from '@ui-kitten/components';
+import { Text, Card } from '@ui-kitten/components';
 import axios from 'axios';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Home() {
   const [alcoholicData, setAlcoholicData] = useState([]);
@@ -11,7 +12,8 @@ export default function Home() {
   const nonAlcoholicUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
 
   const grabCocktailInfo = (url, setDataFunction) => {
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
         console.clear();
         setDataFunction(response.data.drinks);
@@ -22,89 +24,97 @@ export default function Home() {
       });
   };
 
-  return (
-    <ScrollView style={styles.container}>
-      <Card>
-         <Text style={styles.cardTitle}>
-         Having a good cocktail at a dinner party is really important because 
-         it makes the party more fun and helps everyone mingle. It's like a tasty
-          conversation starter! A well-made 
-          cocktail not only tastes good with the food but also gets people talking and 
-          having a good time. Whether it's a classic drink or something new, having nice 
-          drinks at the party makes it feel fancier and more enjoyable for everyone. Plus,
-           it's cool to have non-alcoholic options too, so everyone, even those who don't drink,
-            can join in and enjoy the party together! If you're looking for both alcoholic and 
-            non-alcoholic recipes, use the search bar below to find a variety of drinks that
-             suit everyone's preferences. Cheers to a fantastic dinner party! 🍹🥂
-        </Text>
-        </Card>
-      <TouchableOpacity
-        onPress={() => grabCocktailInfo(alcoholicUrl, setAlcoholicData)}
-        style={styles.button}
-      >
-        <Text>Search Alcoholic Cocktails</Text>
-      </TouchableOpacity>
-      {alcoholicData.map((item, index) => (
-        
-        <View key={index} style={styles.feed}>
-          {item.strDrinkThumb && <Image style={styles.image} source={{ uri: item.strDrinkThumb }} />}
-          <View style={styles.text}>
-            
-            <Text>Name: {item.strDrink}</Text>
-            <Text>Category: {item.strCategory}</Text>
-          </View>
-        </View>
-      ))}
+  const styles = {
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      paddingTop: 10,
+    },
+    cardTitle: {
+      fontSize: 16,
+      textAlign: 'center',
+      marginBottom: 10,
+    },
+    image: {
+      height: 200,
+      width: 200,
+    },
+    feed: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    text: {
+      width: 380,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
+    button: {
+      width: 250,
+      backgroundColor: '#FDEDF4',
+      borderRadius: 5,
+      display: 'flex',
+      alignItems: 'center',
+      alignSelf: 'center',
+      marginVertical: 10,
+      paddingVertical: 10,
+    },
+    gradient: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingVertical: 20,
+    },
+  };
 
-      <TouchableOpacity
-        onPress={() => grabCocktailInfo(nonAlcoholicUrl, setNonAlcoholicData)}
-        style={styles.button}
-      >
-        <Text>Search Non-Alcoholic Cocktails</Text>
-      </TouchableOpacity>
-      {nonAlcoholicData.map((item, index) => (
-        <View key={index} style={styles.feed}>
-          {item.strDrinkThumb && <Image style={styles.image} source={{ uri: item.strDrinkThumb }} />}
-          <View style={styles.text}>
-            <Text>Name: {item.strDrink}</Text>
-            <Text>Category: {item.strCategory}</Text>
+  return (
+    <LinearGradient
+      colors={['#F2BF6C', '#FF51EB']}
+      style={styles.gradient}
+    >
+      <ScrollView style={styles.container}>
+        <Card>
+          <Text style={styles.cardTitle}>
+            Having a good cocktail at a dinner party is really important because it makes the party more fun and helps everyone mingle. It's like a tasty conversation starter! A well-made cocktail not only tastes good with the food but also gets people talking and having a good time. Whether it's a classic drink or something new, having nice drinks at the party makes it feel fancier and more enjoyable for everyone. Plus, it's cool to have non-alcoholic options too, so everyone, even those who don't drink, can join in and enjoy the party together! If you're looking for both alcoholic and non-alcoholic recipes, use the search bar below to find a variety of drinks that suit everyone's preferences. Cheers to a fantastic dinner party! 🍹🥂
+          </Text>
+        </Card>
+        <TouchableOpacity
+          onPress={() => grabCocktailInfo(alcoholicUrl, setAlcoholicData)}
+          style={styles.button}
+        >
+          <Text>Search Alcoholic Cocktails</Text>
+        </TouchableOpacity>
+        {alcoholicData.map((item, index) => (
+          <View key={index} style={styles.feed}>
+            {item.strDrinkThumb && (
+              <Image style={styles.image} source={{ uri: item.strDrinkThumb }} />
+            )}
+            <View style={styles.text}>
+              <Text>Name: {item.strDrink}</Text>
+              <Text>Category: {item.strCategory}</Text>
+            </View>
           </View>
-        </View>
-      ))}
-    </ScrollView>
+        ))}
+
+        <TouchableOpacity
+          onPress={() => grabCocktailInfo(nonAlcoholicUrl, setNonAlcoholicData)}
+          style={styles.button}
+        >
+          <Text>Search Non-Alcoholic Cocktails</Text>
+        </TouchableOpacity>
+        {nonAlcoholicData.map((item, index) => (
+          <View key={index} style={styles.feed}>
+            {item.strDrinkThumb && (
+              <Image style={styles.image} source={{ uri: item.strDrinkThumb }} />
+            )}
+            <View style={styles.text}>
+              <Text>Name: {item.strDrink}</Text>
+              <Text>Category: {item.strCategory}</Text>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
+    </LinearGradient>
   );
 }
-
-const styles = {
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 10
-  },
-  image: {
-    height: 200,
-    width: 200,
-  },
-  feed: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  text: {
-    width: 380,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  button: {
-    width: 250,
-    backgroundColor: '#FDEDF4',
-    borderRadius: 5,
-    display: 'flex',
-    alignItems: 'center',
-    alignSelf: 'center',
-    marginVertical: 10,
-    paddingVertical: 10,
-  }
-  
-};
