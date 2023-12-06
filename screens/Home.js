@@ -18,7 +18,7 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={['#F2BF6C', '#FF51EB']}
+        colors={['#ffafbd', '#ffc3a0']}
         style={styles.gradient}
       >
         <StatusBar style="auto" />

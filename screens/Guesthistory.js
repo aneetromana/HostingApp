@@ -25,39 +25,26 @@ export default function ({ navigation }) {
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => showPopup(item)}>
       <ListItem title={`${item.title}`} />
+      {selectedItem && selectedItem.title === item.title && (
+        <View style={styles.infoContainer}>
+          <Text>{item.info}</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 
   const showPopup = (item) => {
-    setSelectedItem(item);
-  };
-
-  const hidePopup = () => {
-    setSelectedItem(null);
+    setSelectedItem(selectedItem === item ? null : item);
   };
 
   return (
     <LinearGradient
-      colors={['#F2BF6C', '#FF51EB']}
+      colors={['#ffafbd', '#ffc3a0']}
       style={styles.gradient}
     >
-      {/* Wrapped the content inside the gradient */}
       <View style={styles.container}>
         <Text>Most common allergies</Text>
         <List style={styles.list} data={data} renderItem={renderItem} />
-
-        {/* Popup */}
-        {selectedItem && (
-          <View style={styles.popup}>
-            <View style={styles.popupContent}>
-              <Text>{selectedItem.title}</Text>
-              <Text>{selectedItem.info}</Text>
-              <TouchableOpacity onPress={hidePopup}>
-                <Text>Close</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
       </View>
     </LinearGradient>
   );
@@ -73,24 +60,13 @@ const styles = StyleSheet.create({
   list: {
     width: '100%', 
   },
-  popup: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
-    zIndex: 2, // Make sure it's on top
-  },
-  popupContent: {
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 10,
+  infoContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: 10,
+    marginTop: 5,
+    borderRadius: 5,
     borderWidth: 1,
     borderColor: '#ddd',
-    width: '80%', // Adjust as needed
   },
   gradient: {
     flex: 1,

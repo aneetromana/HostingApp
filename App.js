@@ -8,7 +8,6 @@ import * as eva from '@eva-design/eva';
 import Home from './screens/Home';
 import About from './screens/About';
 import Cocktails from './screens/Cocktails';
-import Guests from './screens/Guests';
 import Dinner from './screens/Dinner';
 import Guesthistory from './screens/Guesthistory';
 import React from 'react';
@@ -41,7 +40,6 @@ export default function App() {
             <Stack.Screen name="Cocktails" component={Cocktails} />
             <Stack.Screen name="Dinner" component={Dinner} />
             <Stack.Screen name="Guesthistory" component={Guesthistory} />
-            <Stack.Screen name="Guests" component={Guests} />
     
           </Stack.Navigator>
         </NavigationContainer>

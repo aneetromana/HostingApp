@@ -8,7 +8,7 @@ export default function About({ navigation }) {
   return (
     <Layout style={styles.container} level='1'>
       <LinearGradient
-        colors={['#F2BF6C', '#FF51EB']}
+        colors={['#ffafbd', '#ffc3a0']}
         style={styles.gradient}
       >
         <View style={styles.contentContainer}>
