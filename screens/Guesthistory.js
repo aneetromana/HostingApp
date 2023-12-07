@@ -78,7 +78,7 @@ card: {
   shadowOpacity: 0.5,
   shadowRadius: 30,
   elevation: 5,
-  backgroundColor: '#fff',
+  backgroundColor: 'rgba(255, 255, 255, 0.8)', 
 },
 cardTitle: {
   fontWeight: 'bold',

@@ -12,7 +12,7 @@ import Dinner from './screens/Dinner';
 import Guesthistory from './screens/Guesthistory';
 import React from 'react';
 import Login from './screens/Login';
-import { createStackNavigator } from "@react-navigation/stack";
+
 
 
 export default function App() {

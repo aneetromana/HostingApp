@@ -5,10 +5,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Home({ navigation }) {
   const buttons = [
-    { label: 'ABOUT', screen: 'About', image: { uri: 'https://i.pinimg.com/564x/2e/c4/99/2ec4998f44a760cf85dadfb9aafff82a.jpg' } },
-    { label: 'COCKTAILS', screen: 'Cocktails', image: { uri: 'https://st4.depositphotos.com/5969432/25293/i/450/depositphotos_252935496-stock-photo-glasses-citrus-cocktails-white-background.jpg' } },
-    { label: 'DINNER', screen: 'Dinner', image: { uri: 'https://cdn5.vectorstock.com/i/1000x1000/11/49/romantic-dinner-icon-vector-22391149.jpg' } },
-    { label: 'GUEST INFO', screen: 'Guesthistory', image: { uri: 'https://st4.depositphotos.com/5969432/25293/i/450/depositphotos_252935496-stock-photo-glasses-citrus-cocktails-white-background.jpg' } },
+    { label: 'ABOUT', screen: 'About', image: { uri: 'https://cdn-icons-png.flaticon.com/512/263/263164.png' } },
+    { label: 'SEARCH DRINKS', screen: 'Cocktails', image: { uri: 'https://t4.ftcdn.net/jpg/03/59/99/03/360_F_359990338_qVwRQkEtD0N2kLaRgtIgVdDIM9FZEndu.jpg' } },
+    { label: 'SEARCH DINNER', screen: 'Dinner', image: { uri: 'https://t3.ftcdn.net/jpg/02/90/62/16/360_F_290621603_Hph61Tf1lqzZhz5tdQNQ7luqKMb3TXQb.jpg' } },
+    { label: 'ALLERGY INFO', screen: 'Guesthistory', image: { uri: 'https://img.freepik.com/premium-vector/cute-pink-heart-icon-flat-vector-illustration_91515-64.jpg' } },
   ];
 
   const { width } = useWindowDimensions();
@@ -73,8 +73,9 @@ const styles = StyleSheet.create({
     marginVertical: 10, 
   },
   image: {
-    width: '105%', 
-    height: 120, 
+    width: '100%', 
+    height: undefined, 
+    aspectRatio: 1, 
     borderRadius: 10, 
   },
   headingText: {

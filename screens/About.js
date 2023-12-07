@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 2 },
+    
     shadowOpacity: 0.5,
     shadowRadius: 30,
     elevation: 5,
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   cardColor: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
   },
   cardTitle: {
     fontWeight: 'bold',
