@@ -7,7 +7,7 @@ export default function Home({ navigation }) {
   const buttons = [
     { label: 'ABOUT', screen: 'About', image: { uri: 'https://i.pinimg.com/564x/2e/c4/99/2ec4998f44a760cf85dadfb9aafff82a.jpg' } },
     { label: 'COCKTAILS', screen: 'Cocktails', image: { uri: 'https://st4.depositphotos.com/5969432/25293/i/450/depositphotos_252935496-stock-photo-glasses-citrus-cocktails-white-background.jpg' } },
-    { label: 'DINNER', screen: 'Dinner', image: { uri: 'https://st4.depositphotos.com/5969432/25293/i/450/depositphotos_252935496-stock-photo-glasses-citrus-cocktails-white-background.jpg' } },
+    { label: 'DINNER', screen: 'Dinner', image: { uri: 'https://cdn5.vectorstock.com/i/1000x1000/11/49/romantic-dinner-icon-vector-22391149.jpg' } },
     { label: 'GUEST INFO', screen: 'Guesthistory', image: { uri: 'https://st4.depositphotos.com/5969432/25293/i/450/depositphotos_252935496-stock-photo-glasses-citrus-cocktails-white-background.jpg' } },
   ];
 
@@ -22,6 +22,7 @@ export default function Home({ navigation }) {
         style={styles.gradient}
       >
         <StatusBar style="auto" />
+        <Text style={styles.headingText}>Click an option below to start your planning</Text> 
         <View style={styles.contentContainer}>
           {buttons.map((button, index) => (
             <Card key={index} style={[styles.cardBackground, { width: cardWidth }]}>
@@ -75,4 +76,11 @@ const styles = StyleSheet.create({
     width: '105%', 
     height: 120, 
     borderRadius: 10, 
-}});
+  },
+  headingText: {
+    fontSize: 20, 
+    textAlign: 'center',
+    color: '#fff', 
+    marginVertical: 20,
+  },
+});

@@ -42,10 +42,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   gradient: {
-    flex: 1, // Ensure the LinearGradient fills the entire screen
+    flex: 1, 
   },
   contentContainer: {
-    flex: 1, // Ensure the content inside LinearGradient fills the entire screen
+    flex: 1, 
     justifyContent: 'center',
     alignItems: 'center',
   },

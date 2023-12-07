@@ -3,6 +3,7 @@ import { ScrollView, View, TouchableOpacity, Image } from 'react-native';
 import { Text, Card } from '@ui-kitten/components';
 import axios from 'axios';
 import { LinearGradient } from 'expo-linear-gradient';
+import { StyleSheet } from 'react-native';
 
 export default function Home() {
   const [alcoholicData, setAlcoholicData] = useState([]);
@@ -24,58 +25,15 @@ export default function Home() {
       });
   };
 
-  const styles = {
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      paddingTop: 10,
-    },
-    cardTitle: {
-      fontSize: 16,
-      textAlign: 'center',
-      marginBottom: 10,
-    },
-    image: {
-      height: 200,
-      width: 200,
-    },
-    feed: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    text: {
-      width: 380,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-    },
-    button: {
-      width: 250,
-      backgroundColor: '#FDEDF4',
-      borderRadius: 5,
-      display: 'flex',
-      alignItems: 'center',
-      alignSelf: 'center',
-      marginVertical: 10,
-      paddingVertical: 10,
-    },
-    gradient: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingVertical: 20,
-    },
-  };
 
   return (
-    <LinearGradient
-      colors={['#F2BF6C', '#FF51EB']}
-      style={styles.gradient}
-    >
+ <LinearGradient
+  colors={['#ffafbd', '#ffc3a0']}
+  style={styles.gradient}
+>
       <ScrollView style={styles.container}>
-        <Card>
-          <Text style={styles.cardTitle}>
+      <Card style={styles.card}>
+  <Text style={styles.cardTitle}>
             Having a good cocktail at a dinner party is really important because it makes the party more fun and helps everyone mingle. It's like a tasty conversation starter! A well-made cocktail not only tastes good with the food but also gets people talking and having a good time. Whether it's a classic drink or something new, having nice drinks at the party makes it feel fancier and more enjoyable for everyone. Plus, it's cool to have non-alcoholic options too, so everyone, even those who don't drink, can join in and enjoy the party together! If you're looking for both alcoholic and non-alcoholic recipes, use the search bar below to find a variety of drinks that suit everyone's preferences. Cheers to a fantastic dinner party! 🍹🥂
           </Text>
         </Card>
@@ -118,3 +76,54 @@ export default function Home() {
     </LinearGradient>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 5,
+  },
+  gradient: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
+  card: {
+    margin: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 30,
+    elevation: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+    padding: 16,
+  },
+  cardTitle: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  image: {
+    height: 200,
+    width: '100%', 
+    borderRadius: 10,
+  },
+  feed: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  text: {
+    width: '100%', 
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  button: {
+    width: 250,
+    backgroundColor: '#FDEDF4',
+    borderRadius: 5,
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginVertical: 10,
+    paddingVertical: 10,
+  },
+});
